@@ -1,3 +1,5 @@
 export const UPDATE_TIMES = 'UPDATE_TIMES';
 
 export const UPDATE_CATEGORIES = 'UPDATE_CATEGORIES';
+
+export const UPDATE_USER = 'UPDATE_USER';
