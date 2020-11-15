@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import github from '../assets/github.png';
 import Menu from './Menu';
 
-const Nav = ({ cookies }) => {
+const Nav = ({ cookieHandler, uid }) => {
   const [menu, setMenu] = useState(false);
 
   return (
@@ -13,15 +13,16 @@ const Nav = ({ cookies }) => {
       <button type="button" id="menu-bar" onClick={() => setMenu(menu === false)} style={{ transform: `rotate(${menu === false ? '0' : '90deg'})` }}>
         <i className="fas fa-bars" />
       </button>
-      <div id="menu" style={{ right: menu === false ? '-250px' : '5px' }} cookies={cookies}>
-        <Menu />
+      <div id="menu" style={{ right: menu === false ? '-250px' : '5px' }}>
+        <Menu cookieHandler={cookieHandler} uid={uid} />
       </div>
     </nav>
   );
 };
 
 Nav.propTypes = {
-  cookies: PropTypes.func.isRequired,
+  cookieHandler: PropTypes.func.isRequired,
+  uid: PropTypes.string.isRequired,
 };
 
 export default Nav;
