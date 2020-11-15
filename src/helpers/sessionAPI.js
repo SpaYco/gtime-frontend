@@ -10,12 +10,15 @@ export const signin = async (sessionType, name) => {
   }
   const data = await fetch('https://spayco-gtime.herokuapp.com/users', {
     method: 'POST',
-    body: {
-      username: name,
+    headers: {
+      'Content-Type': 'application/json',
     },
+    body: JSON.stringify({
+      name,
+    }),
   }).then(response => response.json());
-  if (await data.status === 200) {
-    return [true, data.user[0]];
+  if (typeof await data.id === 'number') {
+    return [true, data];
   }
   return false;
 };
