@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import categoriesReducer from './categories';
+import gamesReducer from './games';
 import userReducer from './user';
 
 const rootReducer = combineReducers({
-  categories: categoriesReducer,
+  categories: gamesReducer,
   user: userReducer,
 });
 
