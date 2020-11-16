@@ -61,7 +61,7 @@ class Details extends React.Component {
 
 Details.propTypes = {
   handleGamesUpdate: PropTypes.func.isRequired,
-  games: PropTypes.objectOf(PropTypes.shape({
+  games: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     memory: PropTypes.number.isRequired,
