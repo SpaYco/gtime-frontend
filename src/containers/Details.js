@@ -29,7 +29,7 @@ class Details extends React.Component {
       return result;
     };
 
-    return <div>{getList()}</div>;
+    return <div id="details">{getList()}</div>;
   }
 }
 

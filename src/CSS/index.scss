@@ -78,6 +78,16 @@ body {
     }
   }
 
+  #details {
+    .game-cards {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      height: 50px;
+    }
+  }
+
   code {
     font-family:
       source-code-pro,

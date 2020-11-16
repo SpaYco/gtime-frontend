@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const Game = ({ id, name, link }) => (
-  <a className="game-card" href={`/show/${id}`}>
+  <a className="game-cards" href={`/show/${id}`}>
     <img src={link} alt={name} />
     <h1>{name}</h1>
   </a>
