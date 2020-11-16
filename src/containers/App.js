@@ -2,11 +2,12 @@ import { withCookies } from 'react-cookie';
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Session from '../components/Session';
 import { updateUser } from '../actions/index';
-import Details from '../components/Details';
+import Details from './Details';
+import Show from '../components/Show';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,11 +32,15 @@ class App extends React.Component {
       return (
         <div className="App">
           <Nav cookieHandler={this.cookieHandler} uid={uid} />
-          <Switch>
-            <Route path="/" render={() => (<Details user={uid} />)} />
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={Details} />
 
-            <Route path="/show/:id" render={() => (<Details user={uid} />)} />
-          </Switch>
+              <Route path="/show/:id" component={Show} />
+
+              <Route path="/create" component={Details} />
+            </Switch>
+          </BrowserRouter>
         </div>
       );
     }

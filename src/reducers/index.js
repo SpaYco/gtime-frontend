@@ -3,7 +3,7 @@ import gamesReducer from './games';
 import userReducer from './user';
 
 const rootReducer = combineReducers({
-  categories: gamesReducer,
+  games: gamesReducer,
   user: userReducer,
 });
 

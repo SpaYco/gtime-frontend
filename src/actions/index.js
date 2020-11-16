@@ -1,4 +1,4 @@
-export const UPDATE_GAMES = 'UPDATE_CATEGORIES';
+export const UPDATE_GAMES = 'UPDATE_GAMES';
 
 export const UPDATE_USER = 'UPDATE_USER';
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { signin } from '../helpers/sessionAPI';
+import signin from '../helpers/sessionAPI';
 
 class Session extends React.Component {
   constructor(props) {
@@ -12,21 +12,20 @@ class Session extends React.Component {
     this.setUser = this.setUser.bind(this);
   }
 
-  componentDidMount() {
-    // eslint-disable-next-line no-trailing-spaces
-    
-  }
-
   async setUser() {
     const { formType } = this.state;
-    const { cookies } = this.props;
+    const { cookieHandler } = this.props;
     this.data = await signin(formType, document.getElementById('username').value);
     if (formType === 'login') {
       if (this.data[0] === true) {
-        cookies.set('uid', this.data[1].id);
+        cookieHandler(this.data[1].id);
       } else {
         document.getElementById('error').innerHTML = 'User doesn\'t exist, Sign Up to create it';
       }
+    } else if (this.data[0] === true) {
+      cookieHandler(this.data[1].id);
+    } else {
+      document.getElementById('error').innerHTML = 'Invalid Input, Try again';
     }
   }
 
@@ -53,7 +52,7 @@ class Session extends React.Component {
 }
 
 Session.propTypes = {
-  cookies: PropTypes.func.isRequired,
+  cookieHandler: PropTypes.func.isRequired,
 };
 
 export default Session;

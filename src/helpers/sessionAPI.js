@@ -1,4 +1,4 @@
-export const signin = async (sessionType, name) => {
+const signin = async (sessionType, name) => {
   if (sessionType === 'login') {
     const data = await fetch(`https://spayco-gtime.herokuapp.com/signin?uname=${name}`, {
       method: 'GET',
@@ -23,7 +23,4 @@ export const signin = async (sessionType, name) => {
   return false;
 };
 
-export const getData = async id => {
-  await id;
-  return id;
-};
+export default signin;
