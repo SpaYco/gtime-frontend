@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import github from '../assets/github.png';
 import logo from '../assets/logo.png';
 import Menu from './Menu';
 
-const Nav = ({ cookieHandler, uid }) => {
+const Nav = () => {
   const [menu, setMenu] = useState(false);
 
   return (
@@ -15,15 +14,10 @@ const Nav = ({ cookieHandler, uid }) => {
         <i className="fas fa-bars" />
       </button>
       <div id="menu" style={{ right: menu === false ? '-250px' : '5px' }}>
-        <Menu cookieHandler={cookieHandler} uid={uid} />
+        <Menu />
       </div>
     </nav>
   );
-};
-
-Nav.propTypes = {
-  cookieHandler: PropTypes.func.isRequired,
-  uid: PropTypes.string.isRequired,
 };
 
 export default Nav;

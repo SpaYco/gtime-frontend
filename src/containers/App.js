@@ -1,4 +1,4 @@
-import { withCookies } from 'react-cookie';
+import { withCookies, Cookies } from 'react-cookie';
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -8,6 +8,7 @@ import Session from '../components/Session';
 import { updateUser } from '../actions/index';
 import Details from './Details';
 import Show from '../components/Show';
+import bg from '../assets/bg.gif';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends React.Component {
   cookieHandler(name) {
     const { cookies } = this.props;
     this.setState({ uid: name });
-    cookies.set('uid', name);
+    cookies.set('uid', name, { path: '/' });
   }
 
   render() {
@@ -30,8 +31,8 @@ class App extends React.Component {
     if (uid && uid !== '') {
       handleUserUpdate(uid);
       return (
-        <div className="App">
-          <Nav cookieHandler={this.cookieHandler} uid={uid} />
+        <div id="app" style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover' }}>
+          <Nav />
           <Switch>
             <Route exact path="/" component={Details} />
 
@@ -41,8 +42,8 @@ class App extends React.Component {
       );
     }
     return (
-      <div className="App">
-        <Nav cookieHandler={this.cookieHandler} uid={uid} />
+      <div id="app" style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover' }}>
+        <Nav />
         <Session cookieHandler={this.cookieHandler} />
       </div>
     );
@@ -50,10 +51,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  cookies: PropTypes.objectOf(PropTypes.shape({
-    set: PropTypes.func.isRequired,
-    get: PropTypes.func.isRequired,
-  })).isRequired,
+  cookies: PropTypes.instanceOf(Cookies).isRequired,
   handleUserUpdate: PropTypes.func.isRequired,
 };
 

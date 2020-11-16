@@ -38,13 +38,15 @@ class Session extends React.Component {
   render() {
     const { formType } = this.state;
     return (
-      <div id="session">
-        <h1>{formType}</h1>
-        <div id="error" />
-        <input type="text" id="username" />
-        <div>
-          <button type="button" onClick={this.setUser}>Submit</button>
-          <button type="button" onClick={this.setFormType}>{formType === 'login' ? 'signup' : 'login'}</button>
+      <div id="session-container">
+        <div id="session">
+          <h1>{formType}</h1>
+          <div id="error" />
+          <input type="text" id="username" name="name" />
+          <div>
+            <button type="button" onClick={this.setUser}>Submit</button>
+            <button type="button" onClick={this.setFormType}>{formType === 'login' ? 'signup' : 'login'}</button>
+          </div>
         </div>
       </div>
     );
