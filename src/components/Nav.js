@@ -9,7 +9,7 @@ const Nav = ({ cookieHandler, uid }) => {
   return (
     <nav>
       <a href="https://github.com/Spayco/gtime-frontend" target="_blank" rel="noreferrer"><img src={github} alt="github" /></a>
-      <h2>GTime</h2>
+      <a href="/"><h2>GTime</h2></a>
       <button type="button" id="menu-bar" onClick={() => setMenu(menu === false)} style={{ transform: `rotate(${menu === false ? '0' : '90deg'})` }}>
         <i className="fas fa-bars" />
       </button>
