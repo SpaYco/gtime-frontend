@@ -28,15 +28,15 @@ class Show extends React.Component {
     this.score = `<div class="scores">
     <div>
       <h2>Memory</h2>
-      <h3 class=${this.scoreColor(data.memory)}>${data.memory}</h3>
+      <h3 class=${this.scoreColor(data.memory)}>${data.memory * this.hours}</h3>
     </div>
     <div>
       <h2>Intelligence</h2>
-      <h3 class=${this.scoreColor(data.intelligence)}>${data.intelligence}</h3>
+      <h3 class=${this.scoreColor(data.intelligence)}>${data.intelligence * this.hours}</h3>
     </div>
     <div>
       <h2>Social</h2>
-      <h3 class=${this.scoreColor(data.social)}>${data.social}</h3>
+      <h3 class=${this.scoreColor(data.social)}>${data.social * this.hours}</h3>
     </div>
   </div>`;
     document.getElementById('score').innerHTML = this.score;

@@ -29,7 +29,33 @@ class Details extends React.Component {
       return result;
     };
 
-    return <div id="details">{getList()}</div>;
+    const handleNewGame = async () => {
+      const data = [
+        document.getElementById('name').value,
+        document.getElementById('memory').value,
+        document.getElementById('intelligence').value,
+        document.getElementById('social').value,
+        document.getElementById('link').value,
+      ];
+      await API.pushData(data);
+      window.location.reload();
+    };
+
+    return (
+      <div id="details">
+        <h1>Create</h1>
+        <div id="create">
+          <input type="text" id="name" name="name" placeholder="name" />
+          <input type="number" id="memory" name="memory" placeholder="memory" />
+          <input type="number" id="intelligence" name="intelligence" placeholder="intelligence" />
+          <input type="number" id="social" name="social" placeholder="social" />
+          <input type="text" id="link" name="link" placeholder="image link" />
+          <button type="button" onClick={handleNewGame}>SUBMIT</button>
+        </div>
+        <h1>Pick</h1>
+        {getList()}
+      </div>
+    );
   }
 }
 

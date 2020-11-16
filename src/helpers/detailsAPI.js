@@ -5,18 +5,18 @@ const getData = async () => {
   return data;
 };
 
-const pushData = async () => {
+const pushData = async game => {
   const data = await fetch('https://spayco-gtime.herokuapp.com/games', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      name: 'Fortnite',
-      memory: 5,
-      intelligence: 5,
-      social: -2,
-      link: 'https://i.imgur.com/Jf1m3eb.jpg',
+      name: game[0],
+      memory: game[1],
+      intelligence: game[2],
+      social: game[3],
+      link: game[4],
     }),
   }).then(response => response.json());
   return data;
