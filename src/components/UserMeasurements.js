@@ -4,7 +4,7 @@ const UserMeasurements = ({
   id, memory, intelligence, social,
 }) => (
   <div>
-    <a href={`measure/${id}`}>
+    <a href={`measure/${id}`} className="measure">
       <h1>
         memory:
         {memory}

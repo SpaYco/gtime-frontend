@@ -25,7 +25,11 @@ class Show extends React.Component {
     this.secondDate = new Date(document.getElementById('second-date').value);
     this.hours = Math.floor((Math.abs(this.firstDate - this.secondDate) / 1000) / 3600) % 24;
     this.data = await API.pushData([id, this.hours]);
-    window.location.href = `/measure/${this.data.id}`;
+    if (this.data.id) {
+      window.location.href = `/measure/${this.data.id}`;
+    } else {
+      document.getElementById('score').innerHTML += 'Invalid';
+    }
   }
 
   render() {
