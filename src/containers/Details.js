@@ -21,8 +21,8 @@ class Details extends React.Component {
           <Game
             key={games[i].id}
             id={games[i].id}
-            name={[games[i].name]}
-            link={[games[i].link]}
+            name={games[i].name}
+            link={games[i].link}
           />,
         );
       }
