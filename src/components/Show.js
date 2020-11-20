@@ -1,5 +1,5 @@
 import React from 'react';
-import getData from '../helpers/showAPI';
+import API from '../helpers/showAPI';
 
 const id = window.location.pathname.split('/')[2];
 
@@ -12,7 +12,7 @@ class Show extends React.Component {
   }
 
   async componentDidMount() {
-    this.setState({ data: await getData(id) });
+    this.setState({ data: await API.getData(id) });
   }
 
   scoreColor(num) {
@@ -20,26 +20,12 @@ class Show extends React.Component {
     return this.result;
   }
 
-  measure() {
-    const { data } = this.state;
+  async measure() {
     this.firstDate = new Date(document.getElementById('first-date').value);
     this.secondDate = new Date(document.getElementById('second-date').value);
     this.hours = Math.floor((Math.abs(this.firstDate - this.secondDate) / 1000) / 3600) % 24;
-    this.score = `<div class="scores">
-    <div>
-      <h2>Memory</h2>
-      <h3 class=${this.scoreColor(data.memory)}>${data.memory * this.hours}</h3>
-    </div>
-    <div>
-      <h2>Intelligence</h2>
-      <h3 class=${this.scoreColor(data.intelligence)}>${data.intelligence * this.hours}</h3>
-    </div>
-    <div>
-      <h2>Social</h2>
-      <h3 class=${this.scoreColor(data.social)}>${data.social * this.hours}</h3>
-    </div>
-  </div>`;
-    document.getElementById('score').innerHTML = this.score;
+    this.data = await API.pushData([id, this.hours]);
+    window.location.href = `/measure/${this.data.id}`;
   }
 
   render() {

@@ -8,7 +8,10 @@ import Session from '../components/Session';
 import { updateUser } from '../actions/index';
 import Details from './Details';
 import Show from '../components/Show';
+import Measures from '../components/Measures';
+import Profile from '../components/Profile';
 import bg from '../assets/bg.gif';
+import Links from '../components/Links';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,14 +34,21 @@ class App extends React.Component {
     if (uid && uid !== '') {
       handleUserUpdate(uid);
       return (
-        <div id="app" style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover' }}>
+        <main id="app" style={{ backgroundImage: `url(${bg})`, backgroundSize: 'cover' }}>
           <Nav />
           <Switch>
             <Route exact path="/" component={Details} />
 
             <Route path="/show/:id" component={Show} />
+
+            <Route path="/measure/:id" component={Measures} />
+
+            <Route path="/profile">
+              <Profile uid={uid} />
+            </Route>
           </Switch>
-        </div>
+          <Links />
+        </main>
       );
     }
     return (
