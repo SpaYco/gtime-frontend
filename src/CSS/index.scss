@@ -35,11 +35,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
 
-  #app { 
-    padding: 10vh 0;
-  }
-
   #app {
+    padding: 10vh 0;
     min-height: 100vh;
   }
 
@@ -349,6 +346,7 @@ body {
         align-items: center;
         justify-content: center;
       }
+
       &:hover {
         background-color: #6ad2ff;
       }
