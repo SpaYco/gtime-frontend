@@ -2,7 +2,7 @@
 
 > This is a website for Creating measurements of a game
 
-![screenshot](./src/assets/screenshot.png)
+![screenshot](./screenshot.png)
 
 ## Built With
 
